@@ -16,3 +16,9 @@ Gõ 3 lệnh:
 git add .
 git commit -m "Noi dung bat ky"
 git push
+
+3.2. Clone repository của người khác
+
+git clone link_git
+
+3.3. Lấy code mới từ repository về local

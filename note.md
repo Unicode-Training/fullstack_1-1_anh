@@ -26,3 +26,7 @@ git clone link_git
 git pull
 
 3.4. Loại bỏ các file, folder không đẩy lên git
+
+Tạo file `.gitignore`
+
+Khai các folder, file cần loại bỏ --> Push file .gitignore lên git

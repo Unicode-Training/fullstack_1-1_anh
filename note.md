@@ -22,3 +22,7 @@ git push
 git clone link_git
 
 3.3. Lấy code mới từ repository về local
+
+git pull
+
+3.4. Loại bỏ các file, folder không đẩy lên git

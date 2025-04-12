@@ -174,3 +174,32 @@ Cú pháp:
 ```
 <img src="duong-dan-anh" width="chieu-rong" height="chieu-cao" title="Tiêu đề khi trỏ chuột" alt="Văn bản thay thế" />
 ```
+
+3. Thẻ định dạng kiểu (span)
+
+- Hỗ trợ cho việc css mà đảm bảo nội dung vẫn được inline
+- Cú pháp:
+
+```
+<span>Nội dung</span>
+```
+
+4. Thẻ định dạng: nghiêng, đậm, gạch chân, gạch ngang
+
+- b: In đậm
+- i: In nghiêng
+- u: Gạch chân
+- s: Gạch ngang
+
+5. Thẻ liên quan đến công thức toán học, hóa học
+
+6. Table
+
+7. Form
+
+- Biểu mẫu cho phép người nhập liệu, lựa chọn --> Gửi lên Server
+- Ví dụ: Form đăng nhập, đăng ký
+- Cấu tạo form:
+
+* Trường nhập liệu, lựa chọn
+* Nút gửi

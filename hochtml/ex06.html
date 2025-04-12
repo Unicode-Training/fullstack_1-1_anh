@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <div>
+        <label for="name"> Họ tên </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Tên..."
+          value="Hoàng An"
+        />
+      </div>
+      <div>
+        <label for="email"> Email </label>
+        <input type="email" id="email" name="email" placeholder="Email..." />
+      </div>
+      <div>
+        <label for="password">Mật khẩu</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Mật khẩu"
+        />
+      </div>
+      <div>
+        <label for="age">Tuổi</label>
+        <input
+          type="number"
+          id="age"
+          placeholder="Tuổi"
+          min="10"
+          max="50"
+          step="0.1"
+          name="age"
+        />
+      </div>
+      <div>
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" />
+      </div>
+      <div>
+        <label for="file">File</label>
+        <input type="file" id="file" name="image" />
+      </div>
+      <div>
+        <label for="price">Price</label>
+        <input type="range" id="price" value="0" name="price" step="0.1" />
+      </div>
+      <div>
+        <label>Giới tính</label>
+        <label>
+          <input type="radio" name="gender" value="unknown" />
+          Không xác định
+        </label>
+        <label>
+          <input type="radio" name="gender" value="male" checked />
+          Nam
+        </label>
+        <label>
+          <input type="radio" name="gender" value="female" />
+          Nữ
+        </label>
+      </div>
+      <div>
+        <label>Nguồn</label>
+        <label>
+          <input type="checkbox" name="source" value="facebook" />
+          Facebook
+        </label>
+        <label>
+          <input type="checkbox" name="source" value="google" />
+          Google
+        </label>
+        <label>
+          <input type="checkbox" name="source" value="website" checked />
+          Website
+        </label>
+      </div>
+      <div>
+        <label for="message">Tin nhắn</label>
+        <textarea
+          name="message"
+          placeholder="Tin nhắn..."
+          id="message"
+          rows="5"
+          cols="30"
+        >
+abc</textarea
+        >
+      </div>
+      <div>
+        <label for="province">Tỉnh/Thành phố</label>
+        <select id="province" name="province">
+          <option value="">Chọn Tỉnh/Thành phố</option>
+          <option value="1">Hà Nội</option>
+          <option value="2" selected>Đà Nẵng</option>
+          <option value="3">Hồ Chí Minh</option>
+        </select>
+      </div>
+      <button type="submit">Đăng nhập</button>
+      <button type="button">Nút</button>
+      <button type="reset">Xóa</button>
+    </form>
+  </body>
+</html>

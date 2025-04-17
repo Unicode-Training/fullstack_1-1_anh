@@ -1,0 +1,32 @@
+/* p ~ ul {
+  background: green;
+}
+p ~ .content ul {
+  background: green;
+} */
+
+/* h2 + h2 {
+  color: red;
+} */
+
+/* ul li a[target] {
+  color: red;
+} */
+
+/* ul li a[href="https://online.unicode.vn"]
+{
+  color: red;
+} */
+
+/* ul li a[href*="unicode.vn"] {
+  color: red;
+} */
+
+/* ul li a[href^="https://unicode.vn"]
+{
+  color: red;
+} */
+
+ul li a[href$=".net"] {
+  color: red;
+}

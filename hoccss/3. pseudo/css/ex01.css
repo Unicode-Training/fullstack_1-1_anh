@@ -1,0 +1,22 @@
+/* .title::before {
+  content: "1";
+}
+.title::after {
+  content: "";
+} */
+p::first-letter {
+  color: red;
+}
+p::first-line {
+  color: green;
+}
+p::selection {
+  background: black;
+  color: yellow;
+}
+input {
+  color: red;
+}
+input::placeholder {
+  color: red;
+}

@@ -203,3 +203,162 @@ Cú pháp:
 
 * Trường nhập liệu, lựa chọn
 * Nút gửi
+
+## Ngôn ngữ định dạng CSS
+
+- CSS ngôn ngữ định dạng giao diện trang web (Bố cục, màu sắc, làm đẹp,..)
+- HTML giúp tạo nội dung cho trang web
+- CSS không chạy trực tiếp trên trình duyệt mà cần thông qua HTML
+
+### Cách viết CSS trong HTML
+
+1. Viết trực tiếp css thông qua thẻ style (Internal css)
+
+```
+<style>
+    Code CSS
+</style>
+```
+
+2. Tách file .css và gọi vào file HTML thông qua thẻ link (External CSS)
+
+```
+<link href="duong-dan-file-css" rel="stylesheet" />
+```
+
+3. Viết trực tiếp CSS vào thẻ html thông qua thuộc tính style (Inline CSS)
+
+### Cấu trúc của css
+
+```
+selector {
+    thuoctinh1: giatri1;
+    thuoctinh2: giatri2;
+    thuoctinh3: giatri3;
+}
+```
+
+### Comment trong CSS
+
+```
+/*Comment css*/
+```
+
+### Selector CSS
+
+1. Chọn theo id
+
+```
+#id {
+    code
+}
+```
+
+2. Chọn theo class
+
+```
+.class {
+    code
+}
+```
+
+3. Chọn theo tag
+
+```
+tag {
+    code
+}
+```
+
+4. Selector kết hợp
+
+4.1. Nằm trong (Dùng dấu cách)
+
+```
+selector1 selector2 selector3 {
+    Code
+}
+```
+
+4.2. Con (Dùng dấu >)
+
+```
+selector1 > selector2 > selector3 {
+    Code
+}
+```
+
+4.3. Cùng cấp
+
+```
+selector1selector2selector3 {
+    Code
+}
+```
+
+4.4. Kế thừa
+
+```
+selector1, selector2, selector3 {
+    Code
+}
+```
+
+4.5. Ngang hàng (Không liền kề)
+
+```
+selector1 ~ selector2 ~ selector3 {
+    Code
+}
+```
+
+Điều kiện:
+
+- Các phần tử cùng thuộc 1 cha
+- Phần tử được chọn phải nằm sau
+
+  4.6. Ngang hàng (Liền kề)
+
+```
+selector1 + selector2 + selector3 {
+    Code
+}
+```
+
+5. Attribute Selector (Chọn theo thuộc tính)
+
+- Chọn thẻ html có thuộc tính: tenthe[thuoctinh]
+- Chọn thẻ html có thuộc tính = giá trị: tenthe[thuoctinh="giatri"]
+- Chọn thẻ html có thuộc tính chứa giá trị: tenthe[thuoctinh*="giatri"]
+- Chọn thẻ html có thuộc tính bắt đầu bằng giá trị: tenthe[thuoctinh^="giatri"]
+
+### Pseudo
+
+1. Phần tử giả
+
+Cú pháp: selector::tenphantu
+
+Danh sách phần tử giả
+
+- before
+- after
+- first-letter
+- first-line
+- selection
+- placeholder
+
+2. Lớp giả
+
+Cú pháp: selector:tenlopgia
+
+Danh sách:
+
+- active, hover
+- focus: Chỉ áp dụng với form
+- checked: Radio, Checkbox được check
+- first-child
+- last-child
+- first-of-type: Chọn phần tử đầu tiên cùng kiểu
+- last-of-type: Chọn phần tử cuối cùng cùng kiểu
+- nth-child(i): Chọn phần tử con theo thứ tự
+- nth-of-type(i): Chọn phần tử cùng kiểu theo thứ tự

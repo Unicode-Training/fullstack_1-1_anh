@@ -362,3 +362,144 @@ Danh sách:
 - last-of-type: Chọn phần tử cuối cùng cùng kiểu
 - nth-child(i): Chọn phần tử con theo thứ tự
 - nth-of-type(i): Chọn phần tử cùng kiểu theo thứ tự
+
+### Các thuộc tính định dạng van bản
+
+1. Thuộc tính color
+
+- Thay đổi màu sắc của văn bản
+- Cú pháp: color: mamau|tenmau
+- Color Opacity: Độ trong suốt của 1 màu (Mặc định là 100%)
+- Giá trị trong suốt: transparent
+
+2. Thuộc tính font-size
+
+- Thay đổi cỡ chữ của văn bản
+- Cú pháp: font-size: cochu+donvi
+
+Danh sách đơn vị
+
+- px --> Tuyệt đối (1px = 1 điểm ảnh trên màn hình)
+- em --> Tương đối (1em tỷ lệ với font-size của thẻ cha)
+- rem --> Tương đối (1rem tỷ lệ với font-size mặc định của trình duyệt)
+
+Lưu ý: font-size mặc định của trình duyệt có thể thay đổi bằng cách
+
+- Thay ở phần cài đặt trình duyệt
+- Thay đổi ở selector html
+
+3. Thuộc tính line-height
+
+- Thay đổi chiều cao của dòng văn bản (Giãn dòng)
+- Cú pháp: line-height: tyle
+
+4. Thuộc tính font-family
+
+- Thay đổi font chữ của văn bản
+- Cú pháp: font-family: tenfont1, tenfont2,...
+
+5. Thuộc tính font-weight
+
+- Thay đổi độ dày của văn bản (Phụ thuộc vào font chữ)
+- Cú pháp: font-weight: 100|200|300|400|500|600|700|800|900
+  - Mặc định là 400 (normal)
+  - Giá trị bold là 700
+
+6. Thuộc tính font-style
+
+- Văn bản nghiêng
+- Cú pháp: font-style: normal|italic
+
+7. Thuộc tính text-decoration
+
+- Thiết lập các đường gạch chân, gạch ngang, gạch trên, gạch giữa cho văn bản
+- Cú pháp: text-decoration: none|underline|overline|line-through
+
+8. Thuộc tính text-transform
+
+- Thiết lập chữ hoa, chữ thường
+- Cú pháp: text-transform: none|uppercase|lowercase|captialize
+
+9. Thuộc tính letter-spacing
+
+- Thiết lập khoảng cách giữa các ký tự
+- Cú pháp: letter-spacing: giatri + donvi
+
+10. Thuộc tính word-spacing
+
+- Thiết lập khoảng cách giữa các từ
+- Cú pháp: word-spacing: giatri + donvi
+
+11. Thuộc tính word-wrap
+
+- Chủ động wrap văn bản khi nội dung bị tràn
+- Cú pháp: work-wrap: normal|break-word
+
+12. Thuộc tính text-align
+
+- Căn chỉnh văn theo chiều ngang
+- text-align: left|center|right|justify
+
+### Thuộc tính background
+
+- Thay đổi màu nền, ảnh nền của phần tử html
+
+1. background-color: mamau|tenmau
+
+2. background-image: url(link-ảnh)
+
+3. background-repeat: repeat|no-repeat|repeat-x|repeat-y
+
+4. background-position: x y
+
+Thiết lập vị trí của ảnh nền
+
+5. background-size: x y
+
+Thiết lập kích thước của ảnh nền
+
+Lưu ý:
+
+- cover: Tính toán lấp đầy không gian chứa background
+- contain: Giữ nguyên tỉ lệ của ảnh nền
+
+5. background-attachment: scroll|fixed
+
+- Cố định ảnh nên khi lăn chuột
+
+6. background: color image repeat positiion / size attachment
+
+Tổng hợp tất cả các giá trị trên
+
+### Thuộc tính border
+
+- Thiết lập đường viền cho phần tử html
+- Cấu tạo của border = width + style + color
+
+border-width: giatri + donvi (Độ dày)
+border-style: none|solid|dashed|dotted|double
+border-color: maumau|tenmau
+
+Các thuộc tính mở rộng
+
+Cú pháp: border-{side}-width|style|color
+
+- border-top-width
+- border-left-width
+- border-right-width
+- border-bottom-width
+
+- border-top-style
+- border-left-style
+- border-right-style
+- border-bottom-style
+
+- border-top-color
+- border-left-color
+- border-right-color
+- border-bottom-color
+
+Các thuộc tính rút gọn
+
+border: width style color
+border-{side}: width style color

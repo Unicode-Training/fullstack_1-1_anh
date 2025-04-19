@@ -34,9 +34,13 @@ ul li:last-child {
   color: red;
 } */
 
-input:focus + span {
+/* input:focus + span {
   color: red;
 }
 input:valid + span {
+  color: red;
+} */
+
+#toggle:checked + p {
   color: red;
 }

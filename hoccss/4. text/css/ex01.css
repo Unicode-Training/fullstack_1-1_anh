@@ -1,0 +1,59 @@
+/* body {
+  color: #f06d0f;
+} */
+
+/* h1 {
+  color: #f06d0f;
+}
+h2 {
+  color: #f06d0f82;
+} */
+/* html {
+  font-size: 17px;
+}
+body {
+  font-size: 18px;
+} */
+/* .box {
+  font-size: 1.5em;
+}
+.content {
+  font-size: 1.5em;
+} */
+
+/* .box {
+  font-size: 1.5rem;
+} */
+
+/* .box {
+  line-height: 1.5;
+} */
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+.box {
+  font-weight: bold;
+}
+h1 {
+  font-style: italic;
+}
+h1:hover {
+  font-style: normal;
+}
+h2 {
+  /* text-decoration: line-through; */
+  /* text-transform: capitalize; */
+  /* letter-spacing: 5px; */
+  /* word-spacing: 5px; */
+}
+
+.box {
+  width: 70%;
+  border: 1px solid red;
+  /* word-wrap: break-word; */
+  /* text-align: justify; */
+}
+.box h2 {
+  text-wrap: nowrap;
+}

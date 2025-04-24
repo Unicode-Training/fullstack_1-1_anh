@@ -1,0 +1,11 @@
+.box {
+  width: 400px;
+  border: 1px solid red;
+}
+a {
+  border: 1px solid red;
+  text-decoration: none;
+  padding-inline: 20px;
+  padding-block: 10px;
+  display: inline-block;
+}

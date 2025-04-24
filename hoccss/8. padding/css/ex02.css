@@ -1,0 +1,38 @@
+.product {
+  width: 300px;
+  background: gray;
+  padding: 20px;
+}
+.product h2,
+.product h3 {
+  margin: 0;
+  text-align: center;
+  color: #fff;
+}
+.product h2 {
+  padding-bottom: 15px;
+}
+.product h3 {
+  padding-top: 15px;
+}
+.product .btn-group {
+  padding-top: 15px;
+}
+.product .btn-group button {
+  width: 48%;
+  border: 0;
+  height: 30px;
+  color: #fff;
+}
+.product .btn-group .btn-green {
+  background: green;
+}
+.product .btn-group .btn-red {
+  background: red;
+}
+.product .image {
+  padding-top: 100%;
+  background: url("https://fastly.picsum.photos/id/442/200/100.jpg?hmac=SBXoFdbhFLvjkdLsj1CDKeKvdvg9YHux4bcIt7MVL7w")
+    no-repeat;
+  background-size: cover;
+}

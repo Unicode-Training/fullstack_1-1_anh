@@ -1,0 +1,36 @@
+.btn {
+  width: 100px;
+  height: 30px;
+  background: green;
+  border: 0;
+  color: #fff;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.btn:hover {
+  background: transparent;
+  border: 1px solid red;
+  color: red;
+}
+.btn.btn-small {
+  height: 25px;
+  width: 80px;
+}
+.btn.btn-large {
+  height: 35px;
+  width: 120px;
+}
+.btn-outline {
+  height: 35px;
+  width: 120px;
+  border-radius: 999px;
+  cursor: pointer;
+  border: 1px solid red;
+  background: transparent;
+  color: red;
+}
+.btn-outline:hover {
+  background: green;
+  color: #fff;
+  border: 0;
+}

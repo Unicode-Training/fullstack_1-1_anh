@@ -503,3 +503,41 @@ Các thuộc tính rút gọn
 
 border: width style color
 border-{side}: width style color
+
+### Thuộc tính border-radius
+
+- Bo tròn các góc
+- Cú pháp: border-radius: giatri + donvi
+
+border-top-left-radius
+border-top-right-radius
+border-bottom-left-radius
+border-bottom-right-radius
+
+### Thuộc tính padding
+
+- Tạo khoảng cách đệm giữa content và border
+- Cú pháp: padding: giatri + donvi
+
+Thuộc tính mở rộng:
+
+- padding-top
+- padding-left
+- padding-right
+- padding-bottom
+
+Lưu ý: Không có giá trị âm
+
+### Thuộc tính margin
+
+- Căn lề ngoài border
+- Cú pháp: margin: giatri + donvi
+
+Các lưu ý: cạnh, đơn vị phần trăm, inline --> Giống padding
+
+Các thuộc tính mở rộng
+
+- margin-top
+- margin-left
+- margin-right
+- margin-bottom

@@ -541,3 +541,24 @@ Các thuộc tính mở rộng
 - margin-left
 - margin-right
 - margin-bottom
+
+### Position
+
+- Thay đổi vị trí của các phần tử html
+- 4 loại:
+
+* static: Mặc định (Sắp xếp từ trên xuống, trái sang phải)
+* relative: Tương đối
+* absolute: Tuyệt đối
+* fixed: Cố định khi kéo thanh cuộn
+
+Cú pháp: position: giatri
+
+Khi áp dụng position (Trừ static), có các thuộc tính
+
+- top
+- left
+- right
+- bottom
+- z-index
+- inset

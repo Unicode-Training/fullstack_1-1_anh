@@ -562,3 +562,56 @@ Khi áp dụng position (Trừ static), có các thuộc tính
 - bottom
 - z-index
 - inset
+
+### Flex
+
+- Kỹ thuật chia bố cục trang web (Chia layout, dàn trang)
+- 2 phần:
+
+* flex container
+* flex item
+
+1. Các thuộc tính trong nhóm flex container
+
+- display: flex --> Kích hoạt flexbox
+- flex-direction --> Chọn hướng cho trục main (Mặc định hướng sẽ nằm ngang)
+
+* row --> Mặc định
+* row-reverse
+* column
+* column-reverse
+
+- justify-content --> Tùy chỉnh vị trí các item theo hướng song song với trục main
+
+* flex-start
+* center
+* flex-end
+* space-around
+* space-between
+* space-evenly
+
+- align-items --> Tùy chỉnh vị trí các item theo hướng song song với trục cross
+
+* stretch --> Mặc định, kéo dãn các item theo kích thước của container
+* flex-start
+* center
+* flex-end
+* baseline
+
+- flex-wrap
+
+* nowrap
+* wrap
+* wrap-reverse
+
+- gap: --> Tạo khoảng cách giữa các item
+- row-gap
+- column-gap
+
+2. Các thuộc tính trong nhóm item
+
+- flex-grow --> Tự động giãn các item theo tỷ lệ nhất định lấp đầy khoảng trống của container
+- flex-shrink --> Tự động co lại khi kích thước các item vượt quá khỏi kích thước container
+- flex-basis --> Thiết lập kích thước ban đầu của item
+- flex --> Gộp của grow shrink basis
+- order --> Sắp xếp các item theo thứ tự mong muốn (Mặc định = 0)

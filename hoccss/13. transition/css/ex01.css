@@ -1,0 +1,24 @@
+h1 {
+  /* transition-property: padding-left, color; */
+  /* transition-duration: 3s; */
+  /* transition-delay: 1s; */
+  /* transition-timing-function: cubic-bezier(0.2, 1.07, 1, -0.16); */
+  transition: 1s 1s ease-in-out;
+  transition-property: padding-left, color;
+}
+/* h1:hover {
+  padding-left: 200px;
+  color: green;
+} */
+
+.box {
+  width: 200px;
+  height: 200px;
+  border: 1px solid red;
+  /* overflow: hidden; */
+  /* overflow: auto; */
+  /* overflow: scroll; */
+}
+.box p {
+  /* width: 400px; */
+}

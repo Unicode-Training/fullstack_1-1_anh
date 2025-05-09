@@ -615,3 +615,24 @@ Khi áp dụng position (Trừ static), có các thuộc tính
 - flex-basis --> Thiết lập kích thước ban đầu của item
 - flex --> Gộp của grow shrink basis
 - order --> Sắp xếp các item theo thứ tự mong muốn (Mặc định = 0)
+
+### Transition
+
+- Thuộc tính cho phép tạo hiệu ứng chuyển động dựa trên sẽ thay đổi của các giá trị trong các thuộc tính css (Ví dụ: Tăng width từ 0 đến 100px)
+- Chỉ áp dụng với các thuộc tính có giá trị là số (Bao gồm cả màu)
+
+Cú pháp:
+
+- transition-property --> Khai báo các thuộc tính css muốn có transition
+- transition-duration --> Thiết lập thời gian hoàn thành chuyển động
+- transition-delay --> Thời gian chờ trước khi hiệu ứng bắt đầu chuyển động
+- transition-timing-function --> Thiết lập tốc độ trong quá trình chuyển động diễn ra
+
+* ease --> Mặc định, di chuyển chậm - nhanh - chậm
+* ease-in --> Chậm - Nhanh
+* ease-out --> Nhanh - Chậm
+* ease-in-out --> Chậm - nhanh - chậm
+* linear --> Tốc độ đều
+* cubic-bezier --> Tự thiết lập tốc độ
+
+- transition: property duration delay timing-function

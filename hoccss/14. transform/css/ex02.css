@@ -1,0 +1,31 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.menu-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 200px;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  transform: translate(-100%);
+  transition: transform 0.3s ease;
+}
+.menu-bg {
+  position: absolute;
+  inset: 0;
+  transition: background 0.3s ease;
+  visibility: hidden;
+}
+#toggle:checked ~ .menu-box {
+  transform: translate(0);
+}
+#toggle:checked ~ .menu-bg {
+  background: #0000009c;
+  visibility: visible;
+}

@@ -636,3 +636,72 @@ Cú pháp:
 * cubic-bezier --> Tự thiết lập tốc độ
 
 - transition: property duration delay timing-function
+
+### Transform
+
+- Thuộc tính cho phép thay đổi hình dạng của phần tử html
+- Có thể thay đổi: xoay, nghiêng, phóng to, thu nhỏ, di chuyển
+
+Cú pháp: transform: value
+
+- rotate(angle) --> Xoay theo trục Z
+- rotateX(angle) --> Xoay theo trục X
+- rotateY(angle) --> Xoay theo trục Y
+
+- scale(x, y) --> Phóng to và thu nhỏ theo trục x, y (> 1 --> phóng to, < 1 --> Thu nhỏ)
+- scaleX(value) --> Phóng to, thu nhỏ theo trục X
+- scaleY(value) --> Phóng to, thu nhỏ theo trục Y
+
+- skew(x, y) --> Nghiêng theo trục x, y (Đơn vị deg)
+- skewX(value) --> Nghiêng theo trục X
+- skewY(value) --> Nghiêng theo trục Y
+
+- translate(x, y) --> Di chuyển theo trục x, y
+- translateX(value) --> Di chuyển theo trục X
+- translateY(value) --> Di chuyển theo trục Y
+
+Lưu khi dùng translate với đơn vị phần trăm (Tỷ lệ theo kích thước của chính phần tử đang di chuyển)
+
+### Animation
+
+- Kỹ thuật css cho phép tạo hiệu ứng linh hoạt
+- 2 phần
+
+* Thuộc tính animation
+* keyframes --> Thiết lập kịch bản hiệu ứng
+
+```css
+@keyframes ten_keyframe {
+  from {
+  }
+  ... {
+  }
+  to {
+  }
+}
+```
+
+Lưu ý: from, to, khoảng phần trăm bất kỳ là tỷ lệ so với tổng thời gian hiện ứng
+
+- from: Tương ứng với 0%
+- to: Tương ứng với 100%
+
+Ví dụ: Di chuyển phần tử từ 0 đến 300px trong khoảng thời gian 1s
+
+```
+from {
+
+}
+50% {
+
+}
+to {
+
+}
+```
+
+- animation-name: ten_keyframe
+- animation-duration: thời gian hoàn tành
+- animation-delay: --> Thời gian trễ trước khi hiệu ứng chạy
+- animation-timing-function --> Thiết lập tốc độ của hiệu ứng (Giống transition-timing-function)
+- animation-interation-count: Số lần chạy hiệu ứng (infinite = Chạy vô hạn)

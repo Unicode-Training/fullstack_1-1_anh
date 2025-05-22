@@ -705,3 +705,71 @@ to {
 - animation-delay: --> Thời gian trễ trước khi hiệu ứng chạy
 - animation-timing-function --> Thiết lập tốc độ của hiệu ứng (Giống transition-timing-function)
 - animation-interation-count: Số lần chạy hiệu ứng (infinite = Chạy vô hạn)
+
+### Shadow
+
+box-shadow: none|h-offset v-offset blur spread color
+
+text-shadow: none|h-offset v-offset blur color
+
+### Responsive
+
+- Kỹ thuật để xây dựng trang web thích ứng với tất cả thiết bị
+- Dùng css để thay đổi giao diện dựa vào kích thước màn hình
+  Ví dụ:
+
+- Nếu chiều rộng > 1200px --> Hiển thị title
+- Nếu chiều rộng <= 1200px --> Hiện thị sub-title
+- Nếu chiều rộn <= 992px --> Đổi màu title và ẩn sub-title
+
+Những điểm kích thước màn hình mà tại đó giao diện sẽ bị thay đổi gọi là breakpoint
+
+Không có breakpoint cố định cho mọi dự án mà chỉ có breakpoint phổ biến
+
+- 1400px
+- 1200px
+- 992px
+- 768px
+- 576px
+
+Media queries: Cú pháp của css cho phép tùy chỉnh các thuộc tính theo kích thước màn hình
+
+```css
+@media screen and (max-width: 1399.98px) {
+  selector {
+  }
+}
+
+@media screen and (max-width: 1199.98px) {
+  selector {
+  }
+}
+
+@media screen and (max-width: 991.98px) {
+  selector {
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  selector {
+  }
+}
+
+@media screen and (max-width: 575.98px) {
+  selector {
+  }
+}
+```
+
+Với đa số các giao diện thường có 3 breakpoint dùng nhiều
+
+- 992px
+- 768px
+- 576px
+
+Bài tập: Xây dựng header
+
+Breakpoint
+
+- 992px
+- 768px

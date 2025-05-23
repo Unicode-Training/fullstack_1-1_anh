@@ -1,0 +1,126 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: 0;
+}
+html {
+  font-size: 10px;
+}
+body {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: #333;
+  font-family: Roboto, sans-serif;
+}
+a {
+  color: #333;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+ul {
+  list-style: none;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.header {
+  padding: 20px 0;
+}
+.header .header-inner {
+  display: flex;
+  align-items: center;
+}
+.header .header-inner .menu {
+  margin-left: auto;
+}
+.header .header-inner .menu ul {
+  display: flex;
+}
+.header .header-inner .menu ul li a {
+  display: block;
+  padding: 0 20px;
+  font-weight: 500;
+}
+.header .header-inner .contact .btn {
+  display: block;
+  background: #75b7eb;
+  color: #fff;
+  font-weight: 500;
+  padding: 7px 25px;
+  border-radius: 99px;
+}
+.header .header-inner .contact .mobile-toggle {
+  display: none;
+}
+.header .header-inner .menu-overlay {
+  display: none;
+}
+@media screen and (max-width: 1199.98px) {
+  .container {
+    padding: 0 15px;
+  }
+}
+@media screen and (max-width: 991.98px) {
+  .header .header-inner .menu {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    background: #000;
+    width: 250px;
+    padding: 15px 0;
+    transform: translate(-101%);
+    transition: transform 0.3s ease;
+  }
+  .header .header-inner #menu-checkbox:checked ~ .menu {
+    transform: translate(0);
+  }
+  .header .header-inner .menu-overlay {
+    display: block;
+    position: absolute;
+    inset: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    transition-property: background, visibility;
+  }
+  .header .header-inner #menu-checkbox:checked ~ .menu-overlay {
+    background: #000000a2;
+    visibility: visible;
+  }
+  .header .header-inner .menu ul {
+    display: block;
+  }
+  .header .header-inner .menu ul li a {
+    color: #fff;
+    padding: 10px 20px;
+  }
+  .header .header-inner .contact {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .header .header-inner .contact .mobile-toggle {
+    display: block;
+  }
+  .header .header-inner .contact .mobile-toggle span {
+    height: 3px;
+    display: block;
+    background: #333;
+    margin: 5px 0;
+    border-radius: 3px;
+    width: 30px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .header .header-inner .contact .btn {
+    display: none;
+  }
+}

@@ -171,3 +171,61 @@ Cú pháp:
 ```js
 dieukien ? giatridung : giatrisai;
 ```
+
+## Câu lệnh rẽ nhánh
+
+### Câu lệnh if else
+
+```js
+if (dieukien) {
+  Code;
+}
+
+if (dieukien) {
+    Code 1
+} else {
+    Code 2
+}
+
+if (dieukien) {
+    Code 1
+} else if (dieukien) {
+    Code 2
+} else if (dieukien) {
+    Code 3
+} else {
+    Code n
+}
+
+if (dieukien) {
+    if (dieukien2) {
+        Code
+    } else {
+        Code
+    }
+} else {
+    Code
+}
+```
+
+### Câu lệnh switch case
+
+- Áp dụng trong trường hợp có quá nhiều nhánh hoặc nhiều điều kiện OR
+- Chỉ có tác dụng với so sánh bằng (===)
+
+```js
+switch (bien) {
+  case value1:
+    Code;
+    break;
+  case value2:
+    Code;
+    break;
+  case valuen:
+    Code;
+    break;
+  default:
+    Code;
+    break;
+}
+```

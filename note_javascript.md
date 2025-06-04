@@ -229,3 +229,27 @@ switch (bien) {
     break;
 }
 ```
+
+## Vòng lặp
+
+- Cú pháp của lập trình cho phép đoạn chương trình chạy lặp đi lặp lại theo số lần nhất định
+- 2 loại chính
+
+* Lặp với số lần xác định trước: for
+* Lặp với số lần không xác định trước: while, do while
+
+Ngoài ra: Cho 1 số loại vòng lặp liên quan đến kiểu dữ liệu: object
+
+### Vòng lặp for
+
+```js
+for (bienchay = giatrikhoitao; dieukienchay; buocnhay) {
+  Code;
+}
+```
+
+Bước nhảy sẽ giúp bienchay thay đổi nhằm mục đích làm sao điều kiện chạy bị sai --> Vòng lặp sẽ thoát
+
+Từ khóa break: Thoát vòng lặp dựa vào điều kiện
+
+Từ khóa continue: Bỏ qua lần lặp để đi đến lần lặp tiếp theo

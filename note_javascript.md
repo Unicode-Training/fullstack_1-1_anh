@@ -253,3 +253,77 @@ Bước nhảy sẽ giúp bienchay thay đổi nhằm mục đích làm sao đi�
 Từ khóa break: Thoát vòng lặp dựa vào điều kiện
 
 Từ khóa continue: Bỏ qua lần lặp để đi đến lần lặp tiếp theo
+
+### Vòng lặp while
+
+```
+while (dieukien) {
+  Code
+}
+```
+
+```
+do {
+  Code
+} while (dieukien)
+```
+
+## Function
+
+- Cú pháp cho phép nhóm các đoạn chương trình con thành các hàm riêng biệt
+- Mục đích: Gọn gàng, tái sử dụng, hỗ trợ 1 số bài toán phức tạp
+
+Cú pháp khai báo:
+
+```js
+function tenham() {
+  Code;
+}
+
+function tenham(thamso1, thamso2,...) {
+  Code;
+}
+```
+
+Cú pháp gọi hàm
+
+```
+tenham();
+tenham(doiso1, doiso2,...)
+```
+
+Hàm có return
+
+- Có giá trị trả về (Hàm mang ra giá trị, có thể tái sử dụng nhiều hơn)
+- Thêm từ khóa return trong hàm để quy ước giá trị nào trả về
+
+Hàm không return
+
+- Mang giá trị undefined
+
+Lưu ý: Khi dùng từ khóa return --> Hàm sẽ bị thoát (Các đoạn code bên dưới return không hoạt động)
+
+Có thể gọi hàm khác trong 1 hàm đang định nghĩa
+
+### Anonymus Function
+
+```js
+function() {
+  Code
+}
+```
+
+- Hàm ẩn danh hay còn gọi là hàm không tên
+- Không chạy được trừ phi
+
+* Gán vào 1 biến
+* Truyền vào hàm khác thông qua tham số
+
+1 hàm được gán vào 1 biến ==> Expression Function
+
+### Arrow function
+
+### Closure
+
+- Hàm cho phép truy cập vào các biến ở phạm vi chứa nó
+- Hàm con

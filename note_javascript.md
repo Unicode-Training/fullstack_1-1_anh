@@ -327,3 +327,32 @@ function() {
 
 - Hàm cho phép truy cập vào các biến ở phạm vi chứa nó
 - Hàm con
+
+### Tham số còn lại
+
+- Áp dụng trong các tình huống không cố định đối số truyền vào
+- Viết cuối cùng
+
+```js
+function tenham(thamso1, thamso2, ...thamsoconlai) {
+  Code;
+}
+```
+
+### Giải thuật đệ quy
+
+- Gọi lại chính hàm đang định nghĩa
+- Tạo ra 1 vòng lặp bằng cách sử dụng hàm
+- Kiểm soát việc dừng lại
+
+```js
+function tenham() {
+  //Logic
+  tenham();
+}
+tenham();
+```
+
+- Trong web: Áp dụng cho các bài toán đa cấp
+
+## Kiểu dữ liệu String

@@ -149,4 +149,16 @@ const getFirstName = (fullname) => {
   const pos = fullname.lastIndexOf(" ");
   return fullname.slice(pos + 1);
 };
-console.log(getFirstName("Nguyen Thang Anh"));
+
+for (let i = 0; i < customers.length - 1; i++) {
+  for (let j = i + 1; j < customers.length; j++) {
+    const firstNameI = getFirstName(customers[i]);
+    const firstNameJ = getFirstName(customers[j]);
+    if (firstNameI > firstNameJ) {
+      let tmp = customers[i];
+      customers[i] = customers[j];
+      customers[j] = tmp;
+    }
+  }
+}
+console.log(customers);

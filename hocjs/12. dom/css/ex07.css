@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body,
+html {
+  height: 100%;
+}
+.main {
+  height: 100%;
+  display: flex;
+}
+.sidebar {
+  width: 250px;
+  background: #efefef;
+  position: relative;
+}
+.content {
+  width: calc(100% - 250px);
+}
+.line-verical {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: gray;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: ew-resize;
+}
+.sidebar:hover .line-verical {
+  opacity: 1;
+}

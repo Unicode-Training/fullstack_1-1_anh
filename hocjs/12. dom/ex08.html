@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* .wrapper {
+        border: 1px solid red;
+        padding: 10px;
+        margin: 10px 0;
+      }
+      .box {
+        border: 1px solid green;
+        padding: 10px;
+      } */
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      ul {
+        list-style: none;
+      }
+      .menu {
+        width: 250px;
+        margin: 30px auto;
+        background: #333;
+      }
+      .menu li a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        padding: 5px 15px;
+        display: flex;
+      }
+      .menu li ul {
+        display: none;
+        background: green;
+      }
+      .menu li.active ul {
+        display: block;
+      }
+      .menu li.has-children > a::after {
+        content: "▼";
+        font-size: 0.8rem;
+        margin-left: auto;
+        display: block;
+        margin-left: auto;
+      }
+      .menu li.has-children.active > a::after {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="wrapper">
+      <div class="box">
+        <button>Click me</button>
+        <p>Item 1</p>
+        <p>Item 2</p>
+        <p>Item 3</p>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="box">
+        <button>Click me</button>
+        <p>Item 1</p>
+        <p>Item 2</p>
+        <p>Item 3</p>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="box">
+        <button>Click me</button>
+        <p>Item 1</p>
+        <p>Item 2</p>
+        <p>Item 3</p>
+      </div>
+    </div> -->
+
+    <ul class="menu">
+      <li><a href="#">Item 1</a></li>
+      <li>
+        <a href="#">Item 2</a>
+        <ul>
+          <li><a href="#">Item 2.1</a></li>
+          <li><a href="#">Item 2.2</a></li>
+          <li><a href="#">Item 2.3</a></li>
+          <li><a href="#">Item 2.4</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Item 3</a>
+        <ul>
+          <li><a href="#">Item 3.1</a></li>
+          <li><a href="#">Item 3.2</a></li>
+          <li><a href="#">Item 3.3</a></li>
+          <li><a href="#">Item 3.4</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Item 4</a></li>
+      <li><a href="#">Item 5</a></li>
+    </ul>
+
+    <script src="js/ex08.js"></script>
+  </body>
+</html>

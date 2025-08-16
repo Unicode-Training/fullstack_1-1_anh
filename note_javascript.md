@@ -356,3 +356,32 @@ tenham();
 - Trong web: Áp dụng cho các bài toán đa cấp
 
 ## Kiểu dữ liệu String
+
+## Package Manager
+
+1. Khởi tạo dự án bằng npm
+
+npm init -y
+
+2. Cài đặt thư viện
+
+2.1. Simple Dependencies
+
+npm i tenthuvien hoặc npm i tenthuvien@phienban
+
+2.2. Develope Dependencies
+
+npm i tenthuvien --save-dev hoặc npm i tenthuvien@phienban --save-dev
+
+3. Gỡ bỏ thư viện
+
+npm uninstall tenthuvien
+
+4. Cài đặt tất cả thư viện (Cài lại node_modules)
+
+npm i
+npm install
+
+Nếu chỉ muốn cài đặt các thư viện trong dependencies
+
+npm i --production

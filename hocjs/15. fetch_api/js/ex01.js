@@ -27,31 +27,72 @@ const renderPosts = async (posts) => {
   const postListEl = document.querySelector("#post-list");
   const html = posts
     .map(
-      (post) => `<div class="border-[#ddd] border-solid border p-3 mb-3">
+      (
+        post
+      ) => `<div id="js-post-${post.id}" class="border-[#ddd] border-solid border p-3 mb-3">
           <h2 class="text-xl font-medium mb-3">${post.title}</h2>
           <p>
             ${post.body}
           </p>
+          <div class="flex justify-between items-center">
           <button
             data-id="${post.id}"
             class="btn-view border border-[#ddd] block mt-3 px-5 py-1 cursor-pointer hover:bg-[green] hover:text-white rounded-full"
           >
             Xem chi tiết
           </button>
+          <div>
+            <button data-id="${post.id}" class="btn-edit text-black cursor-pointer">Sửa</button>
+            <button data-id="${post.id}" class="btn-delete text-red-500 cursor-pointer">Xóa</button>
+          </div>
+          </div>
     </div>`
     )
     .join("");
   postListEl.innerHTML = html;
 
   //Event
-  const btnList = document.querySelectorAll(".btn-view");
-  btnList.forEach((btn) => {
+  const btnViewList = document.querySelectorAll(".btn-view");
+  btnViewList.forEach((btn) => {
     btn.addEventListener("click", () => {
       openModal();
       const id = btn.dataset.id;
       getPost(id);
     });
   });
+
+  const btnDeleteList = document.querySelectorAll(".btn-delete");
+  btnDeleteList.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.id;
+      handleDelete(id);
+    });
+  });
+
+  const btnEditList = document.querySelectorAll(".btn-edit");
+  btnEditList.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.id;
+      openEditModal(id);
+      submitUpdateForm(id);
+    });
+  });
+};
+const handleDelete = async (id) => {
+  if (!confirm("Chắc chưa?")) {
+    return;
+  }
+  //Xử lý xóa
+  const response = await fetch(`https://dummyjson.com/posts/${id}`, {
+    method: "DELETE",
+  });
+  if (!response.ok) {
+    alert("Không xóa được");
+    return;
+  }
+  //Xóa trên giao diện
+  const postEl = document.querySelector("#js-post-" + id);
+  postEl.remove();
 };
 const getPost = async (id) => {
   //Call api https://dummyjson.com/posts/id
@@ -216,7 +257,7 @@ const openAddModal = () => {
           >
           <h2 class="modal-title font-medium text-2xl border-b-[1px] border-[#ddd]">Thêm bài viết</h2>
           <div class="mt-3 modal-body">
-            <form>
+            <form class="add-form">
               <div class="mb-3">
                 <input type="text" 
                 class="w-full py-2 px-3 border-[#ddd] border-solid border-[1px]"
@@ -246,8 +287,84 @@ const openAddModal = () => {
   });
 };
 
+const openEditModal = async (id) => {
+  const modalEl = document.querySelector("#modal");
+  modalEl.innerHTML = `<div
+          class="fixed top-0 left-0 right-0 bg-[#fff] max-w-[90%] border-[#ddd] border-solid border-[1px] mx-auto p-5 mt-[10%] rounded-md z-50"
+        >
+          <span
+            class="btn-close fixed top-[5px] left-[5px] z-50 w-[30px] h-[30px] cursor-pointer hover:text-[red] bg-[#ffffff97] flex items-center justify-center rounded-full text-xl font-bold"
+            >&times;</span
+          >
+          <h2 class="modal-title font-medium text-2xl border-b-[1px] border-[#ddd]">Cập nhật bài viết</h2>
+          <div class="mt-3 modal-body">
+            <form class="update-form">
+              <div class="mb-3">
+                <input type="text" 
+                class="w-full py-2 px-3 border-[#ddd] border-solid border-[1px]"
+                name="title"
+                placeholder="Tiêu đề..." required/>
+              </div>
+              <div>
+                <textarea
+                class="w-full py-2 px-3 border-[#ddd] border-solid border-[1px]"
+                placeholder="Nội dung..." 
+                name="body" required></textarea>
+              </div>
+              <button class="px-3 py-1 bg-[green] text-white cursor-pointer">Lưu</button>
+            </form>
+          </div>
+        </div>
+        <div class="overlay fixed inset-0 bg-[#00000085] z-40"></div>`;
+
+  const btnCloseEl = document.querySelector(".btn-close");
+  const overlayEl = document.querySelector(".overlay");
+  btnCloseEl.addEventListener("click", closeModal);
+  overlayEl.addEventListener("click", closeModal);
+  document.addEventListener("keyup", (e) => {
+    if (e.key === "Escape") {
+      closeModal();
+    }
+  });
+
+  //Call API
+  const response = await fetch(`https://dummyjson.com/posts/${id}`);
+  const post = await response.json();
+
+  const updateFormEl = document.querySelector(".update-form");
+  const titleEl = updateFormEl.querySelector('[name="title"]');
+  const bodyEl = updateFormEl.querySelector('[name="body"]');
+  titleEl.value = post.title;
+  bodyEl.value = post.body;
+};
+const submitUpdateForm = (id) => {
+  const modalFormEl = document.querySelector("#modal .update-form");
+  modalFormEl.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const title = formData.get("title");
+    const body = formData.get("body");
+    const response = await fetch(`https://dummyjson.com/posts/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title, body }),
+    });
+    if (!response.ok) {
+      alert("Không thể cập nhật");
+      return;
+    }
+    const postEl = document.querySelector(`#js-post-${id}`);
+    const h2 = postEl.querySelector("h2");
+    const p = postEl.querySelector("p");
+    h2.innerText = title;
+    p.innerText = body;
+    closeModal();
+  });
+};
 const submitAddForm = () => {
-  const modalFormEl = document.querySelector("#modal form");
+  const modalFormEl = document.querySelector("#modal .add-form");
   modalFormEl.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);

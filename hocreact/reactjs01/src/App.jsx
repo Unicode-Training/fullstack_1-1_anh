@@ -1,5 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
+import Users from "./components/Users";
+import Counter from "./components/Counter";
 export default function App() {
   const status = true;
   const isAuthenticated = false;
@@ -41,9 +43,28 @@ export default function App() {
   const handleChangeInput = (e) => {
     console.log(e.target.value);
   };
+  const user = {
+    name: "Hoàng An",
+    email: "hoangan.web@gmail.com",
+    age: 33,
+    address: "Hà Nội",
+  };
+  const handleClickFromHeader = (data) => {
+    console.log("Click từ header", data);
+  };
   return (
     <>
-      <Header title="Unicode" description="Học HTML và CSS" />
+      {/* <Header
+        title="Unicode"
+        description="Học HTML và CSS"
+        // name={user.name}
+        // email={user.email}
+        // age={user.age}
+        {...user}
+        onClick={handleClickFromHeader}
+      >
+        <h1>Xin chào anh em</h1>
+      </Header>
       <h1
         className="title"
         style={{
@@ -73,7 +94,9 @@ export default function App() {
             adipisci ut rerum?
           </p>
         </>
-      )}
+      )} */}
+      {/* <Users /> */}
+      <Counter />
     </>
   );
 }

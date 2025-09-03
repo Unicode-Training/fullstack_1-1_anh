@@ -1,14 +1,22 @@
 import { useState } from "react";
 export default function Counter() {
   const [count, setCount] = useState(0);
+  const [message, setMessage] = useState("");
   const handleIncrement = () => {
-    setCount(count + 1);
+    // setCount(count + 1);
+    setCount((prevCount) => {
+      const newCount = prevCount + 1;
+      if (newCount >= 10) {
+        setMessage("Thành công");
+      }
+      return newCount;
+    });
   };
-  console.log("Counter render");
 
   return (
     <div>
       <h1>Count: {count}</h1>
+      {message && <h2>{message}</h2>}
       <button onClick={handleIncrement}>Increment</button>
     </div>
   );

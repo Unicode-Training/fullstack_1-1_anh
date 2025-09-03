@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./components/Header";
 import Users from "./components/Users";
 import Counter from "./components/Counter";
+import Form from "./components/Form";
 export default function App() {
   const status = true;
   const isAuthenticated = false;
@@ -96,7 +97,8 @@ export default function App() {
         </>
       )} */}
       {/* <Users /> */}
-      <Counter />
+      {/* <Counter /> */}
+      <Form />
     </>
   );
 }

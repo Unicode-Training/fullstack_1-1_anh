@@ -1,107 +1,35 @@
-import React from "react";
-import Header from "./components/Header";
-import Users from "./components/Users";
-import Counter from "./components/Counter";
-import Form from "./components/Form";
-export default function App() {
-  const status = true;
-  const isAuthenticated = false;
-  const guestJsx = <h2>Vui lòng đăng nhập</h2>;
-  const url = "https://online.unicode.vn";
-  const users = ["User 1", "User 2", "User 3", "User 4"];
-  const usersJsx = users.map((user, index) => <li key={index}>{user}</li>);
-  const products = [
-    {
-      id: 1,
-      name: "Product 1",
-      price: 1000,
-    },
-    {
-      id: 2,
-      name: "Product 2",
-      price: 2000,
-    },
-    {
-      id: 3,
-      name: "Product 3",
-      //   price: "",
-    },
-  ];
-  const handleBuy = (id) => {
-    console.log(id);
-  };
-  const productsJsx = products.map((product) => (
-    <div key={product.id} className="product-item">
-      <h3>{product.name}</h3>
-      <p>{product.price || "Miễn phí"}</p>
-      <button onClick={() => handleBuy(product.id)}>Mua ngay</button>
-    </div>
-  ));
-  const handleClick = (e) => {
-    console.log("Ahihi");
-    console.log(e);
-  };
-  const handleChangeInput = (e) => {
-    console.log(e.target.value);
-  };
-  const user = {
-    name: "Hoàng An",
-    email: "hoangan.web@gmail.com",
-    age: 33,
-    address: "Hà Nội",
-  };
-  const handleClickFromHeader = (data) => {
-    console.log("Click từ header", data);
-  };
-  return (
-    <>
-      {/* <Header
-        title="Unicode"
-        description="Học HTML và CSS"
-        // name={user.name}
-        // email={user.email}
-        // age={user.age}
-        {...user}
-        onClick={handleClickFromHeader}
-      >
-        <h1>Xin chào anh em</h1>
-      </Header>
-      <h1
-        className="title"
-        style={{
-          color: "red",
-          backgroundColor: "yellow", //background-color
-          padding: "10px",
-        }}
-        onClick={handleClick}
-      >
-        Unicode Academy
-      </h1>
-      <input type="text" onChange={handleChangeInput} />
-      {productsJsx}
+import ConvertMoney from "./components/ConvertMoney";
+import Counter2 from "./components/Counter2";
+import Posts from "./components/Posts";
 
-      {status && (
-        <>
-          {isAuthenticated ? <h3>Đã đăng nhập</h3> : guestJsx}
-          <h3>
-            <a href={url}>Unicode</a>
-          </h3>
-          <ul>{usersJsx}</ul>
-          <button disabled={true}>Click me</button>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto,
-            assumenda ut? Nemo, ex eaque quasi illo excepturi unde? Excepturi ad
-            ipsa suscipit voluptate fuga exercitationem aut necessitatibus
-            adipisci ut rerum?
-          </p>
-        </>
-      )} */}
-      {/* <Users /> */}
-      {/* <Counter /> */}
-      <Form />
-    </>
+export default function App() {
+  return (
+    <div>
+      {/* <Counter2 /> */}
+      {/* <ConvertMoney /> */}
+      <Posts />
+    </div>
   );
 }
 
-//Fragment
-//Shorthand: <></>
+//Vòng đời component: Quá trình từ khi component được tạo ra cho đến khi nó bị xóa khỏi DOM
+// Giai đoạn 1: Khởi tạo (Mounting)
+// Giai đoạn 2: Cập nhật (Updating)
+// Giai đoạn 3: Xóa khỏi DOM (Unmounting)
+
+//Sử dụng hook useEffect(callback, dependencies)
+// - callback: Hàm để thực thi logic nào đó
+// - dependencies: Điều kiện để callback thực thi
+// + null hoặc undefined --> Component re-render --> useEffect sẽ chạy
+// + [] --> Chỉ chạy khi component được khởi tạo (Mounting)
+// + [bien1, bien2] --> Khi 1 trong các biến trong mảng thay đổi --> useEffect sẽ chạy
+// usEffect sẽ chạy khi component cập nhật giao diện xong
+
+//Cleanup trong useEffect --> Dùng để dọn dẹp dữ liệu cũ của lần render trước
+
+//Thứ tự chạy của useEffect
+//1. State thay đổi
+//2. Component re-render (Gọi lại hàm component)
+//3. UI Update
+//4. Cleanup (Nếu có)
+//5. Callback của useEffect

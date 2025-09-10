@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.tabs {
+  padding: 20px;
+}
+.tabs nav {
+  background: gainsboro;
+  display: flex;
+  gap: 5px;
+}
+.tabs nav button {
+  background: gray;
+  color: #fff;
+  border: 0;
+  padding: 5px 10px;
+}
+.tabs nav button.active {
+  background: red;
+}
+.tabs .tab-content {
+  padding: 10px;
+  border: 1px solid red;
+}
+.tabs .tab-panel {
+  display: none;
+}
+.tabs .tab-panel.active {
+  display: block;
+}

@@ -1,35 +1,23 @@
-import ConvertMoney from "./components/ConvertMoney";
-import Counter2 from "./components/Counter2";
-import Posts from "./components/Posts";
+import React, { useState } from "react";
+import Box from "./components/Box";
+import Tabs from "./components/Tabs";
 
+export const AppContext = React.createContext();
 export default function App() {
+  const [message, setMessage] = useState("Xin chào anh em");
   return (
-    <div>
-      {/* <Counter2 /> */}
-      {/* <ConvertMoney /> */}
-      <Posts />
-    </div>
+    <AppContext.Provider value={{ message, setMessage }}>
+      {/* <Box /> */}
+      <Tabs />
+    </AppContext.Provider>
   );
 }
 
-//Vòng đời component: Quá trình từ khi component được tạo ra cho đến khi nó bị xóa khỏi DOM
-// Giai đoạn 1: Khởi tạo (Mounting)
-// Giai đoạn 2: Cập nhật (Updating)
-// Giai đoạn 3: Xóa khỏi DOM (Unmounting)
+//Context: Component cho phép truyền dữ liệu từ component cha xuống component con mà không cần qua props
 
-//Sử dụng hook useEffect(callback, dependencies)
-// - callback: Hàm để thực thi logic nào đó
-// - dependencies: Điều kiện để callback thực thi
-// + null hoặc undefined --> Component re-render --> useEffect sẽ chạy
-// + [] --> Chỉ chạy khi component được khởi tạo (Mounting)
-// + [bien1, bien2] --> Khi 1 trong các biến trong mảng thay đổi --> useEffect sẽ chạy
-// usEffect sẽ chạy khi component cập nhật giao diện xong
+//A -> B -> C
 
-//Cleanup trong useEffect --> Dùng để dọn dẹp dữ liệu cũ của lần render trước
-
-//Thứ tự chạy của useEffect
-//1. State thay đổi
-//2. Component re-render (Gọi lại hàm component)
-//3. UI Update
-//4. Cleanup (Nếu có)
-//5. Callback của useEffect
+//3 phần:
+// - Đối tượng context
+// - Provider --> Gửi dữ liệu đi
+// - Consumer --> Nhận dữ liệu

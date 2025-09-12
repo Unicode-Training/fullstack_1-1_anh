@@ -1,23 +1,26 @@
-import React, { useState } from "react";
-import Box from "./components/Box";
-import Tabs from "./components/Tabs";
+import { useEffect, useRef } from "react";
+import CheckboxList from "./components/CheckboxList";
+import Counter3 from "./components/Counter3";
+import Input from "./components/Input";
 
-export const AppContext = React.createContext();
 export default function App() {
-  const [message, setMessage] = useState("Xin chào anh em");
+  const inputRef = useRef();
+  useEffect(() => {
+    console.log(inputRef);
+  }, []);
   return (
-    <AppContext.Provider value={{ message, setMessage }}>
-      {/* <Box /> */}
-      <Tabs />
-    </AppContext.Provider>
+    <div>
+      {/* <Counter3 /> */}
+      {/* <CheckboxList /> */}
+      <Input ref={inputRef} />
+    </div>
   );
 }
 
-//Context: Component cho phép truyền dữ liệu từ component cha xuống component con mà không cần qua props
+//Ref:
+// Trong component --> Tạo ra 1 biến --> Component re-render --> Biến sẽ bị reset về giá trị khởi
+// Tạo ra 1 ref --> Khi component re-render --> Tự động tham chiếu giá trị gần nhất (Giá trị của ref sẽ không bị thay đổi)
 
-//A -> B -> C
+//Khi ref thay đổi --> Component sẽ không re-render
 
-//3 phần:
-// - Đối tượng context
-// - Provider --> Gửi dữ liệu đi
-// - Consumer --> Nhận dữ liệu
+//Ref được dùng để tham chiếu tới 1 phần tử DOM

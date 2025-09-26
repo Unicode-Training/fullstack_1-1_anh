@@ -3,25 +3,30 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import Products from "./pages/Products/Products";
 import ProductDetail from "./pages/Products/ProductDetail";
+import MainLayout from "./layouts/MainLayout";
+import Login from "./pages/Auth/Login";
+import AdminLayout from "./layouts/AdminLayout";
+import Dashboard from "./pages/Admin/Dashboard";
+import AuthMiddleware from "./middleware/AuthMiddleware";
 export default function App() {
   return (
-    <div>
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/gioi-thieu" element={<About />} />
-          <Route path="/lien-he" element={<Contact />} />
-          <Route path="/san-pham" element={<Products />} />
-          <Route path="/san-pham/:id" element={<ProductDetail />} />
-        </Routes>
-      </main>
-      <Footer />
-    </div>
+    <Routes>
+      <Route element={<MainLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/gioi-thieu" element={<About />} />
+        <Route path="/lien-he" element={<Contact />} />
+        <Route path="/san-pham" element={<Products />} />
+        <Route path="/san-pham/:id" element={<ProductDetail />} />
+      </Route>
+      <Route path="/login" element={<Login />} />
+      <Route element={<AuthMiddleware />}>
+        <Route element={<AdminLayout />} path="/admin">
+          <Route path="" element={<Dashboard />} />
+        </Route>
+      </Route>
+    </Routes>
   );
 }
 

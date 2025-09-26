@@ -30,3 +30,18 @@ main {
   color: red;
   font-weight: bold;
 }
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 15px;
+}
+.pagination button {
+  display: block;
+  padding: 5px 10px;
+}
+.pagination button.active {
+  background: yellow;
+  color: red;
+  border: 1px solid #ccc;
+}

@@ -46,7 +46,7 @@ export default function Products() {
           <Link to={`/san-pham/${product.id}`}>Chi tiết</Link>
         </div>
       ))}
-      {total && <Pagination total={total} limit={LIMIT} />}
+      {total ? <Pagination total={total} limit={LIMIT} />: ''}
     </div>
   );
 }

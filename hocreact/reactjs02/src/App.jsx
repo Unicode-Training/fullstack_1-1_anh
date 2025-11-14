@@ -10,6 +10,7 @@ import Login from "./pages/Auth/Login";
 import AdminLayout from "./layouts/AdminLayout";
 import Dashboard from "./pages/Admin/Dashboard";
 import AuthMiddleware from "./middleware/AuthMiddleware";
+import Profile from "./pages/Auth/Profile";
 export default function App() {
   return (
     <Routes>
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/lien-he" element={<Contact />} />
         <Route path="/san-pham" element={<Products />} />
         <Route path="/san-pham/:id" element={<ProductDetail />} />
+        <Route path="/tai-khoan" element={<Profile />} />
       </Route>
       <Route path="/login" element={<Login />} />
       <Route element={<AuthMiddleware />}>

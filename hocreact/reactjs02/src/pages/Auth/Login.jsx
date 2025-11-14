@@ -1,19 +1,46 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { saveToken } from "../../utils/utils";
 
 export default function Login() {
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
+  const [message, setMessage] = useState("");
+  const [isLoading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const handleChangeValue = (e) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
     });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(form);
+    try {
+      setLoading(true);
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/auth/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        }
+      );
+      if (!response.ok) {
+        throw new Error("login failed");
+      }
+      const token = await response.json();
+      saveToken(token);
+      navigate("/");
+    } catch {
+      setMessage("Email hoặc mật khẩu không chính xác");
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <div>
@@ -37,8 +64,11 @@ export default function Login() {
             onChange={handleChangeValue}
           />
         </div>
-        <button>Login</button>
+        <button disabled={isLoading}>
+          {isLoading ? "Loading..." : "Login"}
+        </button>
       </form>
+      {message && <p style={{ color: "red" }}>{message}</p>}
     </div>
   );
 }

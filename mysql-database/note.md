@@ -64,3 +64,37 @@ Toán tử: >, >=, <, <=, =, <>, !=, AND, OR, NOT, IS NULL, IS NOT NULL, IN, EXI
 Sắp xếp: ORDER BY tencot kieusapxep (ASC, DESC)
 
 Giới hạn: LIMIT soluong OFFSET soluong
+
+Join:
+
+- Inner join: Lấy phần giao của 2 bảng
+- Left join: Lấy toàn bộ bảng bên trái
+- Right join: Lấy toàn bộ bảng bên phải
+
+SELECT tencot1, tencot2,... FROM tenbang1 LOAIJOIN tenbang2 ON dieukienlienket
+
+Yêu cầu:
+
+Lấy danh sách posts của user có id = 3
+
+Lấy danh sách posts của user có email = 'user3@gmail.com'
+
+Lấy danh sách posts của users có email = 'user3@gmail.com' và trạng thái = 1
+
+Lấy danh sách posts của users có số điện thoại là 01234 và trạng thái = 0
+
+Lấy danh sách tên khóa học của users có số điện thoại là 01234
+
+Hàm
+
+- COUNT() --> Đếm số hàng của 1 trường nào đó hoặc của tất cả các trường
+- SUM() --> Tính tổng các hàng theo trường
+- MAX() --> Tính giá trị lớn nhất theo trường
+- MIN() --> Tính giá trị nhỏ nhất theo trường
+- AVG() --> Tính trung bình cộng theo trường
+
+Group by
+
+Having
+
+SubQuery

@@ -98,3 +98,13 @@ Group by
 Having
 
 SubQuery
+
+`SELECT *, (Select) FROM (Select) where (select)...`
+
+<!-- SELECT users.*, COUNT(users_courses.course_id) as course_count FROM users INNER JOIN users_courses ON users.id = users_courses.user_id GROUP BY users_courses.user_id HAVING course_count = (SELECT COUNT(course_id) AS course_count FROM users_courses GROUP BY user_id ORDER BY course_count DESC LIMIT 1);; -->
+
+<!-- SELECT users.*, SUM(courses.price) AS total FROM users INNER JOIN users_courses ON users.id = users_courses.user_id INNER JOIN courses ON users_courses.course_id = courses.id GROUP BY users_courses.user_id HAVING total = (SELECT SUM(courses.price) AS total FROM users_courses INNER JOIN courses ON users_courses.course_id = courses.id GROUP BY users_courses.user_id ORDER BY total DESC LIMIT 1); -->
+
+<!-- DELETE FROM users_courses WHERE user_id IN (
+SELECT id FROM users WHERE status = 0
+) -->

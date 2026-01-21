@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
     <h1>Danh sách người dùng</h1>
-    <form action="">
+    {{-- <form action="">
         <select name="status">
             <option value="all">All</option>
             <option value="active">Active</option>
@@ -26,9 +26,21 @@
 
     @for ($i = 1; $i <= 10; $i++)
         <h3>{{ $i }}</h3>
-    @endfor
-
+    @endfor --}}
+    <form action="">
+        <select name="status">
+            <option value="all">All</option>
+            <option value="active" @if (request()->status == 'active') selected @endif>Active</option>
+            <option value="inactive" @if (request()->status == 'inactive') selected @endif>Inactive</option>
+        </select>
+        <input type="search" name="q" placeholder="Search..." value="{{ request()->q }}">
+        <button>Search</button>
+    </form>
+    @if (session('msg'))
+        <p>{{ session('msg') }}</p>
+    @endif
     @foreach ($users as $user)
-        <h3>{{ $user->name }}</h3>
+        <h3>{{ $user->name }} - {{ $user->email }} - <a href="/users/{{ $user->id }}">Chi tiết</a> <a
+                href="/users/edit/{{ $user->id }}">Sửa</a> - <a href="/users/delete/{{ $user->id }}">Xóa</a></h3>
     @endforeach
 @endsection

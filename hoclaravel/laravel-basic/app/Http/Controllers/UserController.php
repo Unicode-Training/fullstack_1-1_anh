@@ -22,20 +22,24 @@ class UserController extends Controller
         if ($status == "active" || $status == "inactive") {
             $users->where('status', $status == "active" ? 1 : 0);
         }
-        $users = $users->get();
+        $users = $users->paginate(3)->withQueryString();
 
-        return view("users.index", compact('title', 'subTitle', 'status', 'q', 'userList', 'users'));
+        $pageTitle = 'Người dùng';
+
+        return view("users.index", compact('title', 'subTitle', 'status', 'q', 'userList', 'users', 'pageTitle'));
     }
 
     public function detail($id)
     {
         $user = User::find($id); //Truy vấn theo khóa chính
-        return view('users.detail', compact('user'));
+        $pageTitle = "Chi tiết: " . $user->name;
+        return view('users.detail', compact('user', 'pageTitle'));
     }
 
     public function create()
     {
-        return view('users.create');
+        $pageTitle = 'Thêm người dùng';
+        return view('users.create', compact('pageTitle'));
     }
 
     public function store(Request $request)

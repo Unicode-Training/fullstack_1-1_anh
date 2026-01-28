@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\AuthMiddleware;
+use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -11,19 +14,28 @@ Route::get('/gioi-thieu', function () {
     return '<h1>Giới thiệu</h1>';
 });
 
-Route::get('/users', [UserController::class, 'index']);
+Route::group([], function () {
+    Route::get('/users', [UserController::class, 'index']);
 
-Route::get('/users/create', [UserController::class, 'create']);
+    Route::get('/users/create', [UserController::class, 'create']);
 
-Route::post('/users/create', [UserController::class, 'store']);
+    Route::post('/users/create', [UserController::class, 'store']);
 
-Route::get('/users/edit/{id}', [UserController::class, 'editForm']);
+    Route::get('/users/edit/{id}', [UserController::class, 'editForm']);
 
-Route::put('/users/update/{id}', [UserController::class, 'update']);
+    Route::put('/users/update/{id}', [UserController::class, 'update']);
 
-Route::get('/users/delete/{id}', [UserController::class, 'delete']);
+    Route::get('/users/delete/{id}', [UserController::class, 'delete']);
 
-Route::get('/users/{id}', [UserController::class, 'detail']);
+    Route::get('/users/{id}', [UserController::class, 'detail']);
+});
+
+Route::get('/login', [AuthController::class, 'formLogin']);
+
+Route::post('/login', [AuthController::class, 'doLogin']);
+
+Route::get('/logout', [AuthController::class, 'logout']);
+
 
 
 //HTTP METHOD

@@ -43,4 +43,5 @@
         <h3>{{ $user->name }} - {{ $user->email }} - <a href="/users/{{ $user->id }}">Chi tiết</a> <a
                 href="/users/edit/{{ $user->id }}">Sửa</a> - <a href="/users/delete/{{ $user->id }}">Xóa</a></h3>
     @endforeach
+    {{ $users->links() }}
 @endsection

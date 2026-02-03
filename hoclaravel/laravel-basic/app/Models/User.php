@@ -10,5 +10,5 @@ class User extends Model implements AuthenticatableConstract
 {
     use Authenticatable;
     protected $table = 'users'; //Ánh xạ tới bảng table
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'password', 'session_id'];
 }

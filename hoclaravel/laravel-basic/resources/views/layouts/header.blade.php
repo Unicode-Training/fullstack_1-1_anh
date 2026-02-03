@@ -3,7 +3,10 @@
     <div class="flex gap-3">
         @if (auth()->check())
             <span>Chào: {{ auth()?->user()?->name }}</span>
-            <a href="/logout">Đăng xuất</a>
+            <a href="/logout" class="js-logout">Đăng xuất</a>
+            <form class="logout-form" method="post">
+                @csrf
+            </form>
         @else
             <a href="/login">Đăng nhập</a>
         @endif

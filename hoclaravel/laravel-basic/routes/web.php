@@ -14,7 +14,9 @@ Route::get('/gioi-thieu', function () {
     return '<h1>Giới thiệu</h1>';
 });
 
-Route::group([], function () {
+Route::get('/blocked', [AuthController::class, 'blocked']);
+
+Route::group(['middleware' => AuthMiddleware::class], function () {
     Route::get('/users', [UserController::class, 'index']);
 
     Route::get('/users/create', [UserController::class, 'create']);
@@ -34,7 +36,7 @@ Route::get('/login', [AuthController::class, 'formLogin']);
 
 Route::post('/login', [AuthController::class, 'doLogin']);
 
-Route::get('/logout', [AuthController::class, 'logout']);
+Route::post('/logout', [AuthController::class, 'logout']);
 
 
 

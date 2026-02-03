@@ -33,6 +33,9 @@ class AuthController extends Controller
         if (!$user) {
             return redirect('/login')->with('msg', 'Email hoặc mật khẩu không chính xác');
         }
+        //Login thành công
+        // - Lấy sessionId
+        // - Cập nhật vào cột session_id của bảng users
         return redirect('/users');
     }
 
@@ -40,5 +43,19 @@ class AuthController extends Controller
     {
         Auth::logout();
         return redirect('/login');
+    }
+
+    public function blocked()
+    {
+        //Xử lý
+        // - Nếu đã mở khóa -> Chuyển về /users
+        if (!Auth::check()) {
+            abort(404);
+        }
+        $user = Auth::user();
+        if ($user->status) {
+            return redirect('/users');
+        }
+        return view('auth.blocked');
     }
 }

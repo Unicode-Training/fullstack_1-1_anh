@@ -11,6 +11,9 @@
         <div>
             <input type="text" placeholder="Email..." name="email" value="{{ $user->email }}">
         </div>
+        <div>
+            <input type="number" placeholder="Phone..." name="phone" value="{{ $user->phone?->phone }}">
+        </div>
         <button>Submit</button>
         @method('PUT')
         @csrf

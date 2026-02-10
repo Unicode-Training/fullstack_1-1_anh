@@ -2,36 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\models\User;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    private $userService = null;
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
     public function index(Request $request)
     {
-        $title = 'Hello';
-        $subTitle = 'Thắng Anh';
-        $status = $request->status;
-        $q = $request->q;
-        $userList = ['User 1', 'User 2', 'User 3'];
-        $users = User::latest();
-        if ($q) {
-            $users->where('name', 'like', '%' . $q . '%')->orWhere('email', 'like', '%' . $q . '%');
-        }
-        if ($status == "active" || $status == "inactive") {
-            $users->where('status', $status == "active" ? 1 : 0);
-        }
-        $users = $users->paginate(3)->withQueryString();
-
         $pageTitle = 'Người dùng';
-
-        return view("users.index", compact('title', 'subTitle', 'status', 'q', 'userList', 'users', 'pageTitle'));
+        $users = $this->userService->getUsers($request);
+        return view("users.index", compact('users', 'pageTitle'));
     }
 
     public function detail($id)
     {
-        $user = User::find($id); //Truy vấn theo khóa chính
+        $user = $this->userService->getUser($id);
         $pageTitle = "Chi tiết: " . $user->name;
         return view('users.detail', compact('user', 'pageTitle'));
     }
@@ -44,15 +35,11 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
         $name = $request->name;
         $email = $request->email;
-        $password = Hash::make($request->password);
-        $user = User::create([
-            'name' => $name,
-            'email' => $email,
-            'password' => $password
-        ]);
+        $password = $request->password;
+        $phone = $request->phone;
+        $user = $this->userService->createUser(compact('name', 'email', 'password', 'phone'));
         if ($user) {
             return redirect('/users/create')->with('msg', 'Thêm thành công');
         }
@@ -61,11 +48,10 @@ class UserController extends Controller
 
     public function editForm($id)
     {
-        $user = User::find($id);
+        $user = $this->userService->getUser($id);
         if (!$user) {
             abort(404);
         }
-
         return view('users.edit', compact('user'));
     }
 
@@ -73,16 +59,17 @@ class UserController extends Controller
     {
         $name = $request->name;
         $email = $request->email;
-        User::where('id', $id)->update([
-            'name' => $name,
-            'email' => $email
-        ]);
+        $phone = $request->phone;
+        $this->userService->updateUser($id, compact('name', 'email', 'phone'));
         return redirect('/users/edit/' . $id)->with('msg', 'Cập nhật thành công');
     }
 
     public function delete($id)
     {
-        User::where('id', $id)->delete();
+        $this->userService->deleteUser($id);
         return redirect('/users')->with('msg', 'Xóa thành công');
     }
 }
+
+//1 action -> gọi nhiều service
+//1 service -> gọi nhiều service khác

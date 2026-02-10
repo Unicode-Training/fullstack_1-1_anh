@@ -14,6 +14,9 @@
         <div>
             <input type="password" placeholder="Password..." name="password">
         </div>
+        <div>
+            <input type="number" placeholder="Phone..." name="phone">
+        </div>
         <button>Submit</button>
         @csrf
     </form>

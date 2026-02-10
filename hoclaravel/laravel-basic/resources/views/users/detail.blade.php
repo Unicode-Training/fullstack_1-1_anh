@@ -3,6 +3,7 @@
     <h1>Chi tiết user</h1>
     <p>Name: {{ $user->name }}</p>
     <p>Email: {{ $user->email }}</p>
+    <p>Phone: {{ $user->phone?->phone ?? 'Không có số' }}</p>
     <p>Thời gian tạo: {{ $user->created_at }}</p>
     <p>Thời gian cập nhật: {{ $user->updated_at }}</p>
 @endsection

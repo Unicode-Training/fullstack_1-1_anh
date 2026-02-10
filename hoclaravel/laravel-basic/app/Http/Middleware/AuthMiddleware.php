@@ -32,7 +32,11 @@ class AuthMiddleware
         $sessionId = $request->session()->getId();
         // $sessionId = Session::getId();
         // $sessionId = session()->getId();
-        echo $sessionId;
+        // echo $sessionId;
+        if ($user->session_id != $sessionId) {
+            Auth::logout();
+            return redirect('/login');
+        }
 
         return $next($request);
     }

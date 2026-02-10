@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,6 +37,10 @@ class AuthController extends Controller
         //Login thành công
         // - Lấy sessionId
         // - Cập nhật vào cột session_id của bảng users
+        $sessionId = $request->session()->getId();
+        User::where('email', $request->email)->update([
+            'session_id' => $sessionId
+        ]);
         return redirect('/users');
     }
 

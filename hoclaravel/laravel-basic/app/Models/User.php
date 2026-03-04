@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Post;
 use Illuminate\Auth\Authenticatable;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableConstract;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Model implements AuthenticatableConstract
 {
@@ -15,6 +16,11 @@ class User extends Model implements AuthenticatableConstract
     public function phone()
     {
         return $this->hasOne(Phone::class, 'user_id', 'id');
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'user_id', 'id');
     }
 }
 

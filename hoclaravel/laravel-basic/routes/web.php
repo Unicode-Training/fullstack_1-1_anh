@@ -1,14 +1,15 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AuthMiddleware;
-use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/posts/{id}', [PostController::class, 'detail']);
+Route::post('/posts', [PostController::class, 'store'])->middleware(AuthMiddleware::class);
 
 Route::get('/gioi-thieu', function () {
     return '<h1>Giới thiệu</h1>';

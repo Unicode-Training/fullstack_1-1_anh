@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Course;
 use App\Models\Post;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableConstract;
@@ -21,6 +22,11 @@ class User extends Model implements AuthenticatableConstract
     public function posts()
     {
         return $this->hasMany(Post::class, 'user_id', 'id');
+    }
+
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class, 'users_courses', 'user_id', 'course_id');
     }
 }
 

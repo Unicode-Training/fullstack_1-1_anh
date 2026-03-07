@@ -22,6 +22,11 @@ class UserService
         return $users;
     }
 
+    public function getAllUsers()
+    {
+        return User::all();
+    }
+
     public function getUser($id)
     {
         $user = User::find($id); //Truy vấn theo khóa chính

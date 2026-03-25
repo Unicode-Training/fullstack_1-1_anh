@@ -13,3 +13,5 @@ Route::delete('/posts/{id}', [PostController::class, 'delete']);
 
 Route::post('/auth/login', [AuthController::class, 'login']);
 Route::get('/auth/profile', [AuthController::class, 'profile'])->middleware(AuthMiddleware::class);
+Route::post('/auth/refresh-token', [AuthController::class, 'refreshToken']);
+Route::delete('/auth/logout', [AuthController::class, 'logout'])->middleware(AuthMiddleware::class);

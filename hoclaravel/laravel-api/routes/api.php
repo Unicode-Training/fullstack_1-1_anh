@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\VideoController;
 use App\Http\Middleware\AuthMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +16,5 @@ Route::post('/auth/login', [AuthController::class, 'login']);
 Route::get('/auth/profile', [AuthController::class, 'profile'])->middleware(AuthMiddleware::class);
 Route::post('/auth/refresh-token', [AuthController::class, 'refreshToken']);
 Route::delete('/auth/logout', [AuthController::class, 'logout'])->middleware(AuthMiddleware::class);
+
+Route::post('/videos', [VideoController::class, 'create']);

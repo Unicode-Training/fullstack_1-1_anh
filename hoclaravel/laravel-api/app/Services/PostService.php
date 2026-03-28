@@ -10,6 +10,10 @@ class PostService
     {
         return Post::all();
     }
+    public function existPosts()
+    {
+        return Post::exists();
+    }
     public function getPost($id)
     {
         return Post::find($id);
@@ -34,5 +38,10 @@ class PostService
         }
         $post->delete();
         return $post;
+    }
+
+    public function deleteAll()
+    {
+        Post::truncate(); //Xóa hết dữ liệu bảng post
     }
 }
